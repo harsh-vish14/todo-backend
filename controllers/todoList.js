@@ -1,5 +1,5 @@
 const ErrorResponse = require("../helper/ErrorResponse");
-const todo = require("../models/todo");
+const todo = require("../models/Todo");
 
 exports.getAllTodo = async (req, res) => {
   const todos = await todo.find({}).sort({ createdAt: -1 });
@@ -55,11 +55,9 @@ exports.markAsDone = async (req, res) => {
     throw new ErrorResponse("Todo not found", 404);
   }
   await todo.findOneAndUpdate({ _id: todoId }, { done: isDone === "done" });
-  return res
-    .status(200)
-    .json({
-      message: `status changed successfully to ${
-        isDone === "done" ? "done" : "not done"
-      }`,
-    });
+  return res.status(200).json({
+    message: `status changed successfully to ${
+      isDone === "done" ? "done" : "not done"
+    }`,
+  });
 };
