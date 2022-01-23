@@ -3,12 +3,15 @@ const chalk = require("chalk");
 
 module.exports = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URL, {
-      // useCreateIndex: true,
-      // useFindAndModify: false,
-      useNewUrlParser: true,
-      // useUnifiedTopology: true,
-    });
+    const conn = await mongoose.connect(
+      "mongodb+srv://todo-user:todo-user@cluster0.rqyvj.mongodb.net/todo?retryWrites=true&w=majority",
+      {
+        // useCreateIndex: true,
+        // useFindAndModify: false,
+        useNewUrlParser: true,
+        // useUnifiedTopology: true,
+      }
+    );
 
     console.log(
       chalk.blueBright.underline(
