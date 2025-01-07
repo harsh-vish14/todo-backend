@@ -27,7 +27,7 @@ const options = {
         description: "Local server",
       },
       {
-        url: "https://bpc-backend.herokuapp.com/",
+        url: "https://todo-backend-topaz.vercel.app/",
         description: "Deployed server",
       },
     ],
@@ -43,7 +43,7 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, async () => {
-  await connectDB();
+  // await connectDB();
   console.log(
     chalk.yellowBright.bold(
       `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`

@@ -2,8 +2,9 @@ const ErrorResponse = require("../helper/ErrorResponse");
 const todo = require("../models/Todo");
 
 exports.getAllTodo = async (req, res) => {
-  const todos = await todo.find({}).sort({ createdAt: -1 });
-  return res.status(200).json(todos);
+  // const todos = await todo.find({}).sort({ createdAt: -1 });
+
+  return res.status(200).json({ message: "hello world" });
 };
 
 exports.createTodo = async (req, res) => {
